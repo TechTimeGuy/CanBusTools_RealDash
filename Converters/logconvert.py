@@ -1,9 +1,8 @@
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
-import struct
-import re
 from datetime import datetime, timezone
 import pandas as pd
+
 
 def custom_parse_can_log_entry(log_entry):
     parts = log_entry.strip().split(' ')
@@ -31,6 +30,7 @@ def custom_parse_can_log_entry(log_entry):
             pass
     
     return None
+
 
 class CanLogViewer:
     def __init__(self, root):
@@ -88,7 +88,6 @@ class CanLogViewer:
             # Insert data into the treeview without 'Entry #' column
             self.tree.insert('', 'end', values=(timestamp_str, entry['interface'], entry['message_id'], values_str, readable_values_str))
 
-
     def adjust_column_widths(self):
         # Adjust column widths based on content
         for col in self.tree['columns']:
@@ -96,8 +95,6 @@ class CanLogViewer:
             data_width = max(len(str(self.tree.set(item, col))) for item in self.tree.get_children())
             max_width = max(header_width, data_width)
             self.tree.column(col, width=max_width + 10)  # Add padding for better appearance
-
-
 
     def export_to_excel(self):
         # Get data from the treeview
@@ -116,6 +113,7 @@ class CanLogViewer:
             # Export DataFrame to Excel
             df.to_excel(output_file_path, index=False)
             messagebox.showinfo("Export Successful", f"Data exported to {output_file_path}")
+
 
 if __name__ == "__main__":
     root = tk.Tk()
