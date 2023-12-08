@@ -15,4 +15,4 @@ This folder contains the PiCanPlayback script( Original file found at RealDash.n
 
 &nbsp;
 ### **[LogConverter](./Converters/)**
-Folder contains the LogConverter script that will automnatically convert bytes to readable values and allow you to export the results to an excel spreadsheet. 
+Folder contains the LogConverter script that will automatically convert bytes to readable values and allow you to export the results to an Excel spreadsheet. 
