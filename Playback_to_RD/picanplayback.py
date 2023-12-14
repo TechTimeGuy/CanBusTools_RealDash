@@ -76,7 +76,7 @@ def send_next_frame(client, csvfile,frame):
 def main():
     filename = ask_for_log_file()
     # Asking for text input
-    frame = input("Please enter filter: (ie: # or 2E1# etc etc )" )
+    frame = input("Please enter filter (ie: # or 2E1# etc etc ):" )
     with open(filename) as csvfile:
         _ = csvfile.readline()
         print(_)
