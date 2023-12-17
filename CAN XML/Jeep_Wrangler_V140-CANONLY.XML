@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- RealDash CAN XML description file,
+ 2013 Jeep Wrangler (2023)
+Author: Blazetamer-->
+<RealDashCAN version="2">
+    <frames>
+        <!--
+        <frame id="0x7DA" writeInterval="10000">
+        <value offset="0" length="8">0422A02000000000</value>
+        </frame> -->
+
+         <frame id="0x1e1" endianess="big">
+          <value targetId="229" offset="2" length="2" conversion="V-4100"></value> <!--**Steering angle**-->
+        </frame>
+
+        <frame id="0x208" endianess="big">
+          <value targetId="160" units="bits" offset="0" length="2" conversion="V>>8"> </value> <!--**Left Turn**-->
+          <value targetId="161" units="bits" offset="0" length="2" conversion="V>>9"> </value> <!--**Right Turn**-->
+        </frame>
+
+        <frame id="0x211" endianess="big">
+          <value targetId="37" offset="0" length="2" conversion="V"></value> <!--**RPM**-->
+          <value targetId="81" offset="2" length="1" units="mph" conversion="V*2/1.60934"></value> <!--**SPEED** -->
+        </frame>
+
+
+
+        <frame id="0x217" endianess="big">
+          <value targetId="12" offset="1" length="1" conversion="V/10" > </value> <!--**Voltage**-->
+        </frame>
+
+
+
+         <frame id="0x244" endianess="big">
+          <value targetId="162" units="bits" offset="0" length="1" > </value> <!--**DOOR AJAR**-->
+        </frame>
+
+
+        <frame id="0x292" endianess="big">
+          <value targetId="42" offset="2" length="1" conversion="V/2.5" > </value> <!--**Throttle Position**-->
+          <value targetId="14" offset="1" length="1" units="C" conversion="V-40"> </value> <!--***Temp***-->
+        </frame>
+
+         <frame id="0x2a8" endianess="big">
+          <value targetId="162" units="bits" offset="0" length="1" conversion="V>>2"> </value> <!-- High Beam -->
+        </frame>
+
+
+        <frame id="0x2d2" endianess="big">
+          <value targetId="157" units="bits" offset="2" length="1" conversion="V>>1" > </value> <!-- Seat Belt -->
+        </frame>
+
+
+        <frame id="0x2e1" endianess="big">
+          <value targetId="155" units="bit" offset="0" length="1" ></value> <!--**Park Lights**-->
+          <value targetId="392" units="bit" offset="0" length="1" conversion="V>>4"></value> <!--**Front Fog**-->
+        </frame>
+
+
+   </frames>
+</RealDashCAN>
+
+
+

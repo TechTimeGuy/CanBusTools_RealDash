@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Jeep Wrangler With TPMS-->
+<!-- Author: Blazetamer (Update 2023 for nonCanBus measurements-->
+<!-- Tire Pressure should work on all 2013+ Jeep products, Tire Temp
+	 is a little less reliable and may only work if you have the Premium TPMS System -->
+
+<OBD2>
+  <init>
+
+    <command send="atd"></command>  <!-- Sets Defaults -->
+    <command send="atz"></command>   <!--Rest All -->
+    <command send="atat1"></command>  <!--Allow long >7 Byte Message -->
+    <command send="atst62"></command>  <!--Set Timeout to hh X 4 msec -->
+    <command send="atsp6"></command>  <!--Set Protocol to X and save it  -->
+    <command send="ate0"></command>  <!--Echo Off -->
+    <command send="atl0"></command>  <!--LineFeeds Off -->
+    <command send="ats0"></command>  <!--Printing of spaces OFF -->
+    <command send="ath1"></command>  <!--Turn on headers -->
+    <command send="atdpn"></command>  <!--Describe the protocol by number -->
+    <command send="0100"></command>  <!--0100/0200Contains information on vehicle supported PIDs and must be sent first for RealDash -->
+    <command send="0120"></command>  <!--See above -->
+  </init>
+
+<!-- Start Rotation -->
+
+  <rotation>
+    <command send="0104" header="atsh7df" skipCount="6" targetId="100" conversion="V/2.55"></command> <!-- engine load -->
+    <!--<command send="010c" header="atsh7df" skipCount="0" targetId="37" conversion="V/4"></command> <!-- rpm -->
+    <command send="010b" header="atsh7df" skipCount="0" targetId="31"></command> <!-- map -->
+    <!--<command send="010d" header="atsh7df" skipCount="0" targetId="81" units="km/h"></command> <!-- speed -->
+    <command send="010e" header="atsh7df" skipCount="4" targetId="38" conversion="V/2-64"></command> <!-- spark adv -->
+    <command send="0110" header="atsh7df" skipCount="1" targetId="30" conversion="V/100"></command> <!-- maf -->
+
+    <command send="0114" header="atsh7df" skipCount="3" targetId="0" conversion="B0/200"></command> <!-- o2 1-8 -->
+    <command send="0115" header="atsh7df" skipCount="3" targetId="0" conversion="B0/200"></command>
+    <command send="0116" header="atsh7df" skipCount="3" targetId="0" conversion="B0/200"></command>
+    <command send="0117" header="atsh7df" skipCount="3" targetId="0" conversion="B0/200"></command>
+    <command send="0118" header="atsh7df" skipCount="3" targetId="1" conversion="B0/200"></command>
+    <command send="0119" header="atsh7df" skipCount="3" targetId="1" conversion="B0/200"></command>
+    <command send="011a" header="atsh7df" skipCount="3" targetId="1" conversion="B0/200"></command>
+    <command send="011b" header="atsh7df" skipCount="3" targetId="1" conversion="B0/200"></command>
+
+    <command send="0124" header="atsh7df" skipCount="3" targetId="0" conversion="(B0*256+B1)/32768"></command> <!-- o2 1-8 -->
+    <command send="0125" header="atsh7df" skipCount="3" targetId="0" conversion="(B0*256+B1)/32768"></command>
+    <command send="0126" header="atsh7df" skipCount="3" targetId="0" conversion="(B0*256+B1)/32768"></command>
+    <command send="0127" header="atsh7df" skipCount="3" targetId="0" conversion="(B0*256+B1)/32768"></command>
+    <command send="0128" header="atsh7df" skipCount="3" targetId="1" conversion="(B0*256+B1)/32768"></command>
+    <command send="0129" header="atsh7df" skipCount="3" targetId="1" conversion="(B0*256+B1)/32768"></command>
+    <command send="012a" header="atsh7df" skipCount="3" targetId="1" conversion="(B0*256+B1)/32768"></command>
+    <command send="012b" header="atsh7df" skipCount="3" targetId="1" conversion="(B0*256+B1)/32768"></command>
+
+    <command send="0134" header="atsh7df" skipCount="3" targetId="0" conversion="(B0*256+B1)/32768"></command> <!-- o2 1-8 -->
+    <command send="0135" header="atsh7df" skipCount="3" targetId="0" conversion="(B0*256+B1)/32768"></command>
+    <command send="0136" header="atsh7df" skipCount="3" targetId="0" conversion="(B0*256+B1)/32768"></command>
+    <command send="0137" header="atsh7df" skipCount="3" targetId="0" conversion="(B0*256+B1)/32768"></command>
+    <command send="0138" header="atsh7df" skipCount="3" targetId="1" conversion="(B0*256+B1)/32768"></command>
+    <command send="0139" header="atsh7df" skipCount="3" targetId="1" conversion="(B0*256+B1)/32768"></command>
+    <command send="013a" header="atsh7df" skipCount="3" targetId="1" conversion="(B0*256+B1)/32768"></command>
+    <command send="013b" header="atsh7df" skipCount="3" targetId="1" conversion="(B0*256+B1)/32768"></command>
+
+    <command send="0111" header="atsh7df" skipCount="2" targetId="42" conversion="V/2.55"></command> <!-- tps -->
+    <command send="010a" header="atsh7df" skipCount="6" targetId="105" conversion="V*3"></command> <!-- fuel pressure -->
+    <command send="0105" header="atsh7df" skipCount="57" targetId="14" units="C" conversion="V-40"></command> <!-- clt -->
+    <command send="010f" header="atsh7df" skipCount="15" targetId="27" units="C" conversion="V-40"></command> <!-- iat -->
+    <command send="0133" header="atsh7df" skipCount="60" targetId="11"></command> <!-- baro -->
+    <command send="0146" header="atsh7df" skipCount="100" targetId="300" units="C" conversion="V-40"></command> <!-- ambient air temp -->
+
+    <!--<command send="atrv" header="atsh7df" skipCount="5" targetId="12"></command> <!-- voltage -->
+    <command send="012f" header="atsh7df" skipCount="25" targetId="201" conversion="V/2.55"></command> <!-- fuel level -->
+    <command send="0106" header="atsh7df" skipCount="10" targetId="101" conversion="V/1.28-100"></command> <!-- short trim bank 1 -->
+    <command send="0107" header="atsh7df" skipCount="50" targetId="102" conversion="V/1.28-100"></command> <!-- long trim bank 1 -->
+    <command send="0108" header="atsh7df" skipCount="10" targetId="103" conversion="V/1.28-100"></command> <!-- short trim bank 2 -->
+    <command send="0109" header="atsh7df" skipCount="50" targetId="104" conversion="V/1.28-100"></command> <!-- long trim bank 2 -->
+    <command send="011f" header="atsh7df" skipCount="11" targetId="33"></command> <!-- engine runtime -->
+    <command send="015c" header="atsh7df" skipCount="32" targetId="152" units="C" conversion="V-40"></command> <!-- engine oil temp -->
+
+
+     <!--Jeep TPMS -->
+    <command send="22a020" header="atsh7da" skipCount="10" name="Jeep LF Tire" conversion="B0*92.46/255"></command> <!-- Jeep LF Tire PSI -->
+    <command send="22a021" header="atsh7da" skipCount="10" name="Jeep RF Tire" conversion="B0*92.46/255"></command> <!-- Jeep RF Tire PSI -->
+    <command send="22a022" header="atsh7da" skipCount="10" name="Jeep RR Tire" conversion="B0*92.46/255"></command> <!-- Jeep RR Tire PSI -->
+    <command send="22a023" header="atsh7da" skipCount="10" name="Jeep LR Tire" conversion="B0*92.46/255"></command> <!-- Jeep LR Tire PSI -->
+
+	<!--Jeep Tire Temp -->
+    <command send="22a020" header="atsh7da" skipCount="10" name="Jeep LF Temp" conversionABC="B"></command> <!-- Jeep LF Tire Temp -->
+    <command send="22a021" header="atsh7da" skipCount="10" name="Jeep RF Temp" conversionABC="B"></command> <!-- Jeep RF Tire Temp -->
+    <command send="22a022" header="atsh7da" skipCount="10" name="Jeep RR Temp" conversionABC="B"></command> <!-- Jeep RR Tire Temp -->
+    <command send="22a023" header="atsh7da" skipCount="10" name="Jeep LR Temp" conversionABC="B"></command> <!-- Jeep LR Tire Temp -->
+
+
+	<!-- TODO - Add Cabin AC Control and Display -->
+	<!-- TODO - Add Angle and Approach / inclinometer -->
+    </rotation>
+	</OBD2>
+
+
+
+
+
+
